@@ -37,7 +37,7 @@ Gorro, Bufanda, Mochila, Medias, Cinturón, Bolso Tote
 1. **Crea una cuenta en GitHub:** https://github.com  
 2. **Crea un nuevo repositorio:**
    - Ve a https://github.com/new  
-   - Nombre: `pymeascend` (o el que prefieras)  
+   - Nombre: `ascendwithporpuse` (o el que prefieras)  
    - Visibilidad: **Public**  
    - Haz clic en **Create repository**
 

@@ -1,5 +1,5 @@
 // ============================================================
-// PymeAscend – Datos de productos
+// Ascend With Porpuse – Datos de productos
 // ============================================================
 
 const COLORS = {

@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ascend With Porpuse – Ropa & Accesorios</title>
+  <title>Ascend With Porpuse – Pantalones de Buzo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="brand">
@@ -19,8 +17,9 @@
         <span class="brand-sub">Moda & Estilo</span>
       </a>
       <nav class="nav-links">
+        <a href="index.html">Inicio</a>
         <a href="polerones.html">Polerones</a>
-        <a href="buzos.html">Pantalones de Buzo</a>
+        <a href="buzos.html">Pantalones</a>
         <a href="accesorios.html">Accesorios</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -34,76 +33,32 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Nueva Colección 2025</p>
-      <h1 class="hero-title">Comodidad que<br><em>habla por ti</em></h1>
-      <p class="hero-desc">Polerones y buzos en colores que van contigo — desde los tonos tierra que nunca fallan hasta los pasteles que se quedan.</p>
+      <p class="hero-eyebrow">Colección</p>
+      <h1 class="hero-title">Pantalones de Buzo</h1>
+      <p class="hero-desc">Encuentra la comodidad perfecta en cada prenda, con cortes relajados y colores modernos.</p>
       <div class="hero-cta">
-        <a href="polerones.html" class="btn-primary">Ver Polerones</a>
-        <a href="buzos.html" class="btn-outline">Ver Buzos</a>
+        <a href="#buzos" class="btn-primary">Ver colección</a>
+        <a href="#contacto" class="btn-outline">Contactar</a>
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="color-orbs">
-        <span class="orb" style="background:#6B5344;"></span>
-        <span class="orb" style="background:#6B7A5A;"></span>
-        <span class="orb" style="background:#D4C5A9;"></span>
-        <span class="orb" style="background:#1A1A1A;"></span>
-        <span class="orb" style="background:#7EC8C8;"></span>
-        <span class="orb" style="background:#F5D76E;"></span>
-        <span class="orb" style="background:#F4A7B9;"></span>
-      </div>
-      <div class="hero-badge">7 colores disponibles</div>
     </div>
   </section>
 
-  <!-- CATEGORÍAS RÁPIDAS -->
-  <section class="quick-cats">
-    <a href="polerones.html" class="qcat">
-      <div class="qcat-icon">🧥</div>
-      <strong>Polerones</strong>
-      <span>Tallas S–XL</span>
-    </a>
-    <a href="buzos.html" class="qcat">
-      <div class="qcat-icon">👖</div>
-      <strong>Pantalones de Buzo</strong>
-      <span>Tallas 36–42</span>
-    </a>
-    <a href="accesorios.html" class="qcat">
-      <div class="qcat-icon">✨</div>
-      <strong>Accesorios</strong>
-      <span>Complementa tu look</span>
-    </a>
-  </section>
-
-  <section class="section section-overview">
+  <section id="buzos" class="section section-alt">
     <div class="section-header">
-      <p class="section-eyebrow">Explora</p>
-      <h2 class="section-title">Compra por categoría</h2>
-      <p class="section-desc">Cada colección tiene su propia página con productos y una sección de contacto al final.</p>
+      <p class="section-eyebrow">Colección</p>
+      <h2 class="section-title">Pantalones de Buzo</h2>
+      <p class="section-desc">Comodidad total en 7 colores. Tallas del 36 al 42.</p>
     </div>
-    <div class="overview-grid">
-      <article class="overview-card">
-        <h3>Polerones</h3>
-        <p>Prendas suaves y cálidas en los colores de la temporada.</p>
-        <a href="polerones.html" class="btn-outline">Ver polerones</a>
-      </article>
-      <article class="overview-card">
-        <h3>Pantalones de Buzo</h3>
-        <p>Confort y estilo para el día a día.</p>
-        <a href="buzos.html" class="btn-outline">Ver pantalones</a>
-      </article>
-      <article class="overview-card">
-        <h3>Accesorios</h3>
-        <p>Complementos perfectos para cada outfit.</p>
-        <a href="accesorios.html" class="btn-outline">Ver accesorios</a>
-      </article>
-    </div>
+
+    <div class="color-group-label"><span class="dot tierra"></span> Colores Tierra</div>
+    <div class="products-grid" id="grid-buzos-tierra"></div>
+
+    <div class="color-group-label mt-section"><span class="dot pastel"></span> Colores Pasteles</div>
+    <div class="products-grid" id="grid-buzos-pastel"></div>
   </section>
 
-  <!-- CONTACTO -->
   <section id="contacto" class="section section-contact">
     <div class="contact-inner">
       <div class="contact-text">
@@ -115,6 +70,7 @@
           <div class="ci"><span>📧</span> contacto@ascendwithporpuse.cl</div>
           <div class="ci"><span>📍</span> Chile</div>
         </div>
+      </div>
       <form class="contact-form" onsubmit="handleForm(event)">
         <input type="text" placeholder="Tu nombre" required />
         <input type="email" placeholder="Tu correo" required />
@@ -124,7 +80,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -132,9 +87,10 @@
         <p>Moda cómoda, hecha para ti.</p>
       </div>
       <div class="footer-links">
-        <a href="#polerones">Polerones</a>
-        <a href="#buzos">Buzos</a>
-        <a href="#accesorios">Accesorios</a>
+        <a href="index.html">Inicio</a>
+        <a href="polerones.html">Polerones</a>
+        <a href="buzos.html">Buzos</a>
+        <a href="accesorios.html">Accesorios</a>
         <a href="#contacto">Contacto</a>
       </div>
       <div class="footer-social">
@@ -149,7 +105,6 @@
     <div class="footer-bottom">© 2025 Ascend With Porpuse. Todos los derechos reservados.</div>
   </footer>
 
-  <!-- CART MODAL -->
   <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
   <aside class="cart-panel" id="cartPanel">
     <div class="cart-header">
@@ -164,8 +119,6 @@
       <button class="btn-primary" onclick="checkout()">Ir a pagar</button>
     </div>
   </aside>
-
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
   <script src="js/data.js"></script>
