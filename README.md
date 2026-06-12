@@ -1,11 +1,11 @@
-# PymeAscend – Sitio Web
+# Ascend With Porpuse – Sitio Web
 
 Tienda online de polerones, pantalones de buzo y accesorios.
 
 ## 📁 Estructura del proyecto
 
 ```
-pymeascend/
+ascendwithporpuse/
 ├── index.html          ← Página principal
 ├── css/
 │   └── style.css       ← Estilos
@@ -45,11 +45,9 @@ Gorro, Bufanda, Mochila, Medias, Cinturón, Bolso Tote
    ```bash
    git init
    git add .
-   git commit -m "Primer commit - PymeAscend"
+   git commit -m "Primer commit - Ascend With Porpuse"
    git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/pymeascend.git
-   git push -u origin main
-   ```
+   git remote add origin https://github.com/TU_USUARIO/ascendwithporpuse.git
 
 4. **Activa GitHub Pages:**
    - Ve a tu repositorio → **Settings** → **Pages**
@@ -57,7 +55,7 @@ Gorro, Bufanda, Mochila, Medias, Cinturón, Bolso Tote
    - Haz clic en **Save**
 
 5. Tu sitio estará en:  
-   `https://TU_USUARIO.github.io/pymeascend`
+   `https://TU_USUARIO.github.io/ascendwithporpuse`
 
 ---
 
@@ -65,7 +63,7 @@ Gorro, Bufanda, Mochila, Medias, Cinturón, Bolso Tote
 
 1. Ve a https://netlify.com y crea una cuenta
 2. Haz clic en **"Add new site" → "Deploy manually"**
-3. Arrastra la carpeta `pymeascend/` al área de drop
+3. Arrastra la carpeta `ascendwithporpuse/` al área de drop
 4. ¡Listo! Netlify te dará una URL automáticamente
 5. Puedes cambiar la URL en **Site settings → Domain management**
 

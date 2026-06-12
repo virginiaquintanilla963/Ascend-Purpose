@@ -1,5 +1,5 @@
 // ============================================================
-// PymeAscend – App logic
+// Ascend With Porpuse – App logic
 // ============================================================
 
 let cart = [];
@@ -174,7 +174,7 @@ document.querySelector(".cart-btn").addEventListener("click", () => {
 function checkout() {
   if (cart.length === 0) { showToast("Tu carrito está vacío"); return; }
   const total = cart.reduce((s, i) => s + i.precio * i.qty, 0);
-  const msg = `¡Hola PymeAscend! Quiero hacer el siguiente pedido:\n\n${
+  const msg = `¡Hola Ascend With Porpuse! Quiero hacer el siguiente pedido:\n\n${
     cart.map(i => `• ${i.nombre} (Talla: ${i.talla}${i.color ? `, Color: ${i.color}` : ""}) x${i.qty} = ${fmt(i.precio * i.qty)}`).join("\n")
   }\n\nTOTAL: ${fmt(total)}`;
   window.open(`https://wa.me/56900000000?text=${encodeURIComponent(msg)}`, "_blank");
