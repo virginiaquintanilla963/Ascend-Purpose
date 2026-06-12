@@ -4,12 +4,11 @@
 
 let cart = [];
 
-// ── Formatear precio ─────────────────────────────────────────
 function fmt(n) {
   return "$" + n.toLocaleString("es-CL");
 }
 
-// ── Crear tarjeta de producto (poleron / buzo) ───────────────
+// ── Tarjeta producto (poleron / buzo) ────────────────────────
 function createProductCard(item) {
   const card = document.createElement("article");
   card.className = "product-card";
@@ -19,36 +18,30 @@ function createProductCard(item) {
     `<button class="talla-btn" data-talla="${t}" onclick="selectTalla(this)">${t}</button>`
   ).join("");
 
-  // Swatch visual del color
-  const lighterHex = item.color.hex;
-
   card.innerHTML = `
-    <div class="card-preview" style="background: ${lighterHex}18; border-top: 4px solid ${lighterHex};">
-      <div class="card-emoji" style="color: ${lighterHex};">${item.emoji}</div>
-      <div class="color-chip" style="background:${lighterHex};" title="${item.color.name}"></div>
+    <div class="card-preview" style="border-top: 4px solid ${item.color.hex};">
+      <img src="${item.imagen}" alt="${item.nombre}" class="card-img" loading="lazy" />
     </div>
     <div class="card-body">
       <div class="card-grupo">${item.grupo === "tierra" ? "🌿 Tierra" : "🌸 Pastel"}</div>
       <h3 class="card-name">${item.nombre}</h3>
       <p class="card-desc">${item.descripcion}</p>
       <div class="card-color-row">
-        <span class="color-dot" style="background:${lighterHex};"></span>
+        <span class="color-dot" style="background:${item.color.hex};"></span>
         <span class="color-name">${item.color.name}</span>
       </div>
       <div class="tallas-label">Talla:</div>
       <div class="tallas-row">${tallas}</div>
       <div class="card-footer">
         <span class="card-price">${fmt(item.precio)}</span>
-        <button class="btn-add" onclick="addToCart('${item.id}', this)">
-          Agregar
-        </button>
+        <button class="btn-add" onclick="addToCart('${item.id}', this)">Agregar</button>
       </div>
     </div>
   `;
   return card;
 }
 
-// ── Crear tarjeta de accesorio ───────────────────────────────
+// ── Tarjeta accesorio ────────────────────────────────────────
 function createAccCard(item) {
   const card = document.createElement("article");
   card.className = "product-card acc-card";
@@ -62,9 +55,7 @@ function createAccCard(item) {
       <p class="card-desc">${item.descripcion}</p>
       <div class="card-footer">
         <span class="card-price">${fmt(item.precio)}</span>
-        <button class="btn-add" onclick="addAccToCart('${item.id}', this)">
-          Agregar
-        </button>
+        <button class="btn-add" onclick="addAccToCart('${item.id}', this)">Agregar</button>
       </div>
     </div>
   `;
@@ -89,7 +80,6 @@ function addToCart(itemId, btn) {
     return;
   }
 
-  // Encontrar el producto en los datos
   const all = [
     ...window.PYMEDATA.polerones.tierra,
     ...window.PYMEDATA.polerones.pastel,
@@ -101,21 +91,11 @@ function addToCart(itemId, btn) {
 
   const talla = activeTalla.dataset.talla;
   const key = `${itemId}-${talla}`;
-
   const existing = cart.find(c => c.key === key);
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({
-      key,
-      id: itemId,
-      nombre: producto.nombre,
-      talla,
-      precio: producto.precio,
-      qty: 1,
-      emoji: producto.emoji,
-      color: producto.color.name,
-    });
+    cart.push({ key, id: itemId, nombre: producto.nombre, talla, precio: producto.precio, qty: 1, emoji: "🧥", color: producto.color.name });
   }
 
   updateCartUI();
@@ -128,20 +108,8 @@ function addAccToCart(itemId, btn) {
   if (!producto) return;
 
   const existing = cart.find(c => c.key === itemId);
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({
-      key: itemId,
-      id: itemId,
-      nombre: producto.nombre,
-      talla: "—",
-      precio: producto.precio,
-      qty: 1,
-      emoji: producto.emoji,
-      color: null,
-    });
-  }
+  if (existing) { existing.qty++; }
+  else { cart.push({ key: itemId, id: itemId, nombre: producto.nombre, talla: "—", precio: producto.precio, qty: 1, emoji: producto.emoji, color: null }); }
 
   updateCartUI();
   showToast(`✅ ${producto.nombre} agregado`);
@@ -220,26 +188,22 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove("show"), 2800);
 }
 
-// ── Menú hamburguesa ─────────────────────────────────────────
 function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("open");
 }
 
-// ── Formulario de contacto ───────────────────────────────────
 function handleForm(e) {
   e.preventDefault();
   showToast("✅ Mensaje enviado. ¡Te contactaremos pronto!");
   e.target.reset();
 }
 
-// ── Renderizar grids ─────────────────────────────────────────
 function renderGrid(containerId, items, builder) {
   const el = document.getElementById(containerId);
   if (!el) return;
   items.forEach(item => el.appendChild(builder(item)));
 }
 
-// ── Init ─────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const d = window.PYMEDATA;
   renderGrid("grid-polerones-tierra", d.polerones.tierra, createProductCard);
